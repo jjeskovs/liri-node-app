@@ -1,4 +1,5 @@
     require("dotenv").config();
+    var fs = require("fs");
     var axios = require("axios");
     var Spotify = require("node-spotify-api");
     var moment = require("moment");
@@ -53,19 +54,37 @@
         }
         
     // spotify-this-song
-    function spotify(){}
-        var spotify = new Spotify(keys.spotify);
-        if(!name){
-            name = "The Sign"
-        }
-        spotify
-          .search({ type: "track", query: name })
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(err) {
-            console.log(err);
-          });
+    // function spotify(){}
+    //     var spotify = new Spotify(keys.spotify);
+    //     if(!name){
+    //         name = "The Sign"
+    //     }
+    //     spotify
+    //       .search({ type: "track", query: name })
+    //       .then(function(response) {
+    //         console.log(response.tracks)
+    //         var trackInfo = (response.tracks.items);
+
+    //         trackInfo.forEach(function(track){
+    //             var trackData = [
+    //                 //    * Artist(s)
+                    
+    //                 //    * The song's name
+                    
+    //                 //    * A preview link of the song from Spotify
+                    
+    //                 //    * The album that the song is from
+    //             ];
+    //             console.log(trackData);
+    //         })
+
+    //     })
+    //     .catch(function(err) {
+    //       console.log(err);
+    //     });
+
+
+
       
     // movie-this
     function movie(){
@@ -96,4 +115,20 @@
         
         // do-what-it-says
         function justDoIt() {}
-        
+            fs.readFile("random.txt", "utf8", function(err, data){
+            // console.log(typeof data)
+            if (err){
+                console.log("Ups, try it again")
+            } 
+            var fileData = data.split(","); 
+            // console.log(typeof fileData);
+            var action = fileData[0];
+            var name = fileData[1];
+            // console.log(action);
+            // console.log(name);
+            if (action === "concert-this"){
+                concert(name);
+            }else if(action === "spotify-this-song"){
+                spotify();
+            } else if (action )
+        })
