@@ -30,9 +30,9 @@
             console.log("Read the readme file and execute the proper command");
         }
     // concert-this
-    function concert() {
-          var queryUrl = `https://rest.bandsintown.com/artists/${name}/events?app_id=codingbootcamp`;
-        
+    function concert(name) {
+          var queryUrl = "https://rest.bandsintown.com/artists/" + name + "/events?app_id=codingbootcamp";
+        console.log(queryUrl)
           axios
             .get(queryUrl)
             .then(function(response) {
@@ -54,37 +54,28 @@
         }
         
     // spotify-this-song
-    // function spotify(){}
-    //     var spotify = new Spotify(keys.spotify);
-    //     if(!name){
-    //         name = "The Sign"
-    //     }
-    //     spotify
-    //       .search({ type: "track", query: name })
-    //       .then(function(response) {
-    //         console.log(response.tracks)
-    //         var trackInfo = (response.tracks.items);
+    function spotify(){
 
-    //         trackInfo.forEach(function(track){
-    //             var trackData = [
-    //                 //    * Artist(s)
-                    
-    //                 //    * The song's name
-                    
-    //                 //    * A preview link of the song from Spotify
-                    
-    //                 //    * The album that the song is from
-    //             ];
-    //             console.log(trackData);
-    //         })
-
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err);
-    //     });
-
-
-
+      
+      var spotify = new Spotify(keys.spotify);
+      if(!name){
+        var name = "The Sign"
+      }
+      spotify
+      .search({ type: "track", query: name })
+      .then(function(response) {
+        
+        console.log(response.tracks.items[5].artists[0].name);
+        console.log(response.tracks.items[5].name);
+        console.log(response.tracks.items[5].preview_url);
+        console.log(response.tracks.items[5].album.name);
+        
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+      
+    }
       
     // movie-this
     function movie(){
@@ -114,21 +105,26 @@
         }
         
         // do-what-it-says
-        function justDoIt() {}
-            fs.readFile("random.txt", "utf8", function(err, data){
+        function justDoIt() {
+
+          fs.readFile("random.txt", "utf8", function(err, data){
             // console.log(typeof data)
             if (err){
-                console.log("Ups, try it again")
+              console.log("Ups, try it again")
             } 
             var fileData = data.split(","); 
-            // console.log(typeof fileData);
+            console.log(fileData);
             var action = fileData[0];
-            var name = fileData[1];
-            // console.log(action);
-            // console.log(name);
+            var name = fileData[1].split(" ").join("+");
+            name = name.substring(1,name.length-1).toLowerCase();
+            console.log(action);
+            console.log(name);
             if (action === "concert-this"){
-                concert(name);
+              concert(name);
             }else if(action === "spotify-this-song"){
-                spotify();
-            } else if (action )
-        })
+              spotify(name);
+            } 
+            // else if (action === )
+          })
+        }
+          
