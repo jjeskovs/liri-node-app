@@ -58,7 +58,7 @@
       
       var spotify = new Spotify(keys.spotify);
       if(!search){
-        var search = "The Sign"
+        search = "The Sign"
       }
       spotify
       .search({ type: "track", query: search })
@@ -113,8 +113,8 @@
             } 
             var fileData = data.split(","); 
             // console.log(fileData);
-            var action = fileData[0];
-            var search = fileData[1].split(" ").join("+");
+            action = fileData[0];
+            search = fileData[1].split(" ").join("+");
             search = search.substring(1,search.length-1).toLowerCase();
             // console.log(action);
             // console.log(search);
