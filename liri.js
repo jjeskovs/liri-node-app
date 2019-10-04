@@ -7,7 +7,7 @@
     var keys = require("./keys.js");
     
     var action = process.argv[2];
-    var name = process.argv.slice(3).join("+");
+    var search = process.argv.slice(3).join("+");
         
         switch (action) {
           case "concert-this":
@@ -26,12 +26,11 @@
             justDoIt();
             break;
         
-          default:
-            console.log("Read the readme file and execute the proper command");
+         
         }
     // concert-this
-    function concert(name) {
-          var queryUrl = "https://rest.bandsintown.com/artists/" + name + "/events?app_id=codingbootcamp";
+    function concert() {
+          var queryUrl = "https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
         console.log(queryUrl)
           axios
             .get(queryUrl)
@@ -58,11 +57,11 @@
 
       
       var spotify = new Spotify(keys.spotify);
-      if(!name){
-        var name = "The Sign"
+      if(!search){
+        var search = "The Sign"
       }
       spotify
-      .search({ type: "track", query: name })
+      .search({ type: "track", query: search })
       .then(function(response) {
         
         console.log(response.tracks.items[5].artists[0].name);
@@ -74,13 +73,13 @@
       .catch(function(err) {
         console.log(err);
       });
-      
+    
     }
       
     // movie-this
     function movie(){
           
-          if (!name) {
+          if (!search) {
             name = "Mr. Nobody";
           }
           //   console.log(name);
@@ -113,18 +112,19 @@
               console.log("Ups, try it again")
             } 
             var fileData = data.split(","); 
-            console.log(fileData);
+            // console.log(fileData);
             var action = fileData[0];
-            var name = fileData[1].split(" ").join("+");
-            name = name.substring(1,name.length-1).toLowerCase();
-            console.log(action);
-            console.log(name);
+            var search = fileData[1].split(" ").join("+");
+            search = search.substring(1,search.length-1).toLowerCase();
+            // console.log(action);
+            // console.log(search);
             if (action === "concert-this"){
-              concert(name);
+                  concert(search);
             }else if(action === "spotify-this-song"){
-              spotify(name);
-            } 
-            // else if (action === )
+                  spotify();
+            }else if(action === "movie-this"){
+              movie();
+            }
           })
         }
           
