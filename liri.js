@@ -81,7 +81,7 @@
           
           if (!search) {
             name = "Mr. Nobody";
-          }
+          }else {name = search}
           //   console.log(name);
           var queryUrl =
             "http://www.omdbapi.com/?t=" + name + "&y=&plot=short&apikey=trilogy";
