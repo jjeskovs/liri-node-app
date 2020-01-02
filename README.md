@@ -2,6 +2,14 @@
 
 LIRI Bot is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 
+## Getting Started
+1. Clone the repository 
+2. Install Node.js
+3. Install all the dependency by running the 
+<pre>npm install</pre>
+
+4. Obtain API key for Spotify (https://developer.spotify.com/documentation/web-api/)  
+
 <h2>Technology used: </h2>
 
 * Node-Spotify-API
