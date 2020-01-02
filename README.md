@@ -4,20 +4,25 @@ LIRI Bot is like iPhone's SIRI. However, while SIRI is a Speech Interpretation a
 
 ## Getting Started
 1. Clone the repository 
+<pre>git clone git@github.com:jjeskovs/liri-node-app.git</pre>
+
 2. Install Node.js
 3. Install all the dependency by running the 
 <pre>npm install</pre>
 
 4. Obtain API key for Spotify (https://developer.spotify.com/documentation/web-api/)  
+5. Create a .env file
+<pre>
+# Spotify API keys
 
-<h2>Technology used: </h2>
+SPOTIFY_ID= "COPY YOUR KEY HERE"
+SPOTIFY_SECRET="COPY YOUR SECRET HERE"
+</pre>
 
-* Node-Spotify-API
-* Axios
-* Used to make calls to grab data from the OMDB API and the Bands In Town API 
-* Moment
-* DotEnv
-
+## Running LIRI from the CLI
+<pre>
+node liri.js _command_ [_argument_]
+</pre>
 
 From the command line the user has an option to run the following commands. 
 
@@ -51,3 +56,12 @@ Will call the IMBD API and display the details of the movie the user searched. I
 By running this command. The app will read the info from the random.txt and will perform the search per the command stored in the text file. 
     
 ![spotify-this-song](assets/spotify-this-song.png)
+
+
+<h2>Technology used: </h2>
+
+* Node-Spotify-API
+* Axios
+* Used to make calls to grab data from the OMDB API and the Bands In Town API 
+* Moment
+* DotEnv
