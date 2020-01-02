@@ -15,7 +15,7 @@ LIRI Bot is like iPhone's SIRI. However, while SIRI is a Speech Interpretation a
 <pre>
 # Spotify API keys
 
-SPOTIFY_ID= "COPY YOUR KEY HERE"
+SPOTIFY_ID="COPY YOUR KEY HERE"
 SPOTIFY_SECRET="COPY YOUR SECRET HERE"
 </pre>
 
