@@ -20,12 +20,10 @@ SPOTIFY_SECRET="COPY YOUR SECRET HERE"
 </pre>
 
 ## Running LIRI from the CLI
-<pre>
-node liri.js _command_ [_argument_]
-</pre>
-
 From the command line the user has an option to run the following commands. 
-
+<pre>
+node liri.js <i>command</i> [<i>argument</i>]
+</pre>
 
 <h3>"concert-this" </h3>
 
